@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 登录/注册界面 -->
+    <div class="auth-container" id="authContainer">
+        <div class="auth-box">
+            <h1 class="auth-title">Bubble Chat</h1>
+            <div class="auth-tabs">
+                <button class="auth-tab active" onclick="switchTab('login')">登录</button>
+                <button class="auth-tab" onclick="switchTab('register')">注册</button>
+            </div>
+            
+            <div id="loginForm" class="auth-form">
+                <input type="text" id="loginUsername" placeholder="用户名" class="auth-input">
+                <input type="password" id="loginPassword" placeholder="密码" class="auth-input">
+                <button onclick="login()" class="auth-button">登录</button>
+            </div>
+            
+            <div id="registerForm" class="auth-form" style="display: none;">
+                <input type="text" id="registerUsername" placeholder="用户名" class="auth-input">
+                <input type="password" id="registerPassword" placeholder="密码" class="auth-input">
+                <button onclick="register()" class="auth-button">注册</button>
+            </div>
+            
+            <div id="authError" class="auth-error"></div>
+        </div>
+    </div>
+
+    <!-- 聊天界面 -->
+    <div class="container" id="chatApp" style="display: none;">
+        <div class="header">
+            <div class="idol-info">
+                <img src="http://localhost:8000/uploads/avatars/default.png" alt="头像" class="idol-avatar" id="userAvatar" onclick="uploadAvatar()" style="cursor: pointer;" title="点击上传头像">
+                <div class="idol-details">
+                    <h2 class="idol-name" id="userName" onclick="changeUsername()" style="cursor: pointer;" title="点击修改用户名">用户</h2>
+                    <span class="online-status" id="userRole">普通用户</span>
+                </div>
+            </div>
+            <button onclick="logout()" class="logout-button">退出</button>
+        </div>
+
+        <div class="chat-container" id="chatContainer">
+            <!-- 消息将动态加载 -->
+        </div>
+
+        <div class="input-container">
+            <button onclick="selectMedia()" class="media-button" title="发送图片或视频">📎</button>
+            <input type="text" id="messageInput" placeholder="输入消息..." class="message-input">
+            <button onclick="sendMessage()" class="send-button">发送</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
